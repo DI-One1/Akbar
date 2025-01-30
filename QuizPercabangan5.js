@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori Nilai</title>
+    <style>
+      /* Mengatur margin, padding, dan box-sizing */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      /* Styling body */
+      body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #1d1d1d, #2b2b2b);
+          color: #ffffff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          overflow: hidden;
+          position: relative;
+      }
+
+      /* Container utama */
+      .container {
+          text-align: center;
+          animation: fadeInUp 1.2s ease-out;
+      }
+
+      /* Styling judul */
+      h1 {
+          font-size: 3.2em;
+          color: #ff5722;
+          margin-bottom: 20px;
+          letter-spacing: 3px;
+          animation: slideIn 1s ease-out;
+      }
+
+      /* Efek animasi judul slide */
+      @keyframes slideIn {
+          0% {
+              transform: translateX(-100%);
+              opacity: 0;
+          }
+          100% {
+              transform: translateX(0);
+              opacity: 1;
+          }
+      }
+
+      /* Styling tombol */
+      .btn {
+          display: inline-block;
+          margin-top: 30px;
+          padding: 18px 36px;
+          border: 2px solid #ff5722;
+          color: #ff5722;
+          font-size: 1.3em;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          border-radius: 25px;
+      }
+
+      /* Hover tombol */
+      .btn:hover {
+          background-color: #ff5722;
+          color: white;
+          border: 2px solid #ff5722;
+      }
+
+      /* Overlay pada tombol */
+      .btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(255, 87, 34, 0.3);
+          z-index: 1;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.5s ease-in-out;
+      }
+
+      .btn:hover::before {
+          transform: scaleX(1);
+          transform-origin: left;
+      }
+
+      /* Animasi fadeInUp */
+      @keyframes fadeInUp {
+          0% {
+              opacity: 0;
+              transform: translateY(20px);
+          }
+          100% {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Styling footer */
+      footer {
+          position: absolute;
+          bottom: 20px;
+          font-size: 0.9em;
+          color: #aaa;
+          text-align: center;
+          width: 100%;
+          animation: fadeIn 2s ease-out;
+      }
+
+      /* Animasi footer */
+      @keyframes fadeIn {
+          0% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+          }
+      }
+
+  </style>
+</head>
+<body>
+    <script>
+
+// Gaji pokok Sarip
+const gajiPokok = 7000000;
+const gajiLemburPerJam = 100000;
+const batasJamKerja = 40;
+
+// Meminta input jumlah jam kerja dari pengguna
+let jamKerja = parseInt(prompt("Masukkan jumlah jam kerja dalam seminggu:"));
+
+// Menghitung total gaji
+let totalGaji;
+if (jamKerja > batasJamKerja) {
+    let jamLembur = jamKerja - batasJamKerja;
+    totalGaji = gajiPokok + (jamLembur * gajiLemburPerJam);
+} else {
+    totalGaji = gajiPokok;
+}
+
+// Menampilkan hasil
+alert("Total gaji Sarip: Rp. " + totalGaji.toLocaleString());
+console.log("Total gaji Sarip: Rp. " + totalGaji.toLocaleString());
+
+    </script>
+
+    <div class="container">
+        <h1>Selamat Datang di Web Akbar yang Lebih Keren!</h1>
+        <a href="https://www.instagram.com/_.eleventh/" class="btn">Kunjungi Instagram</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Web Akbar. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
